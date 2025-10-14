@@ -1,13 +1,13 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 1
 Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Akhmad Raffi Sarmadan
+- **NIM**   : 250202974
+- **Kelas** : 1IKRA
 
 ---
 
@@ -74,7 +74,8 @@ Tuliskan secara singkat:
 - Apa bagian yang paling menantang minggu ini?  
 - Bagaimana cara Anda mengatasinya?  
 
----
+-cara menggunakan github
+-tanya dan meminta teman mengajari
 
 **Credit:**  
 _Template laporan praktikum Sistem Operasi (SO-202501) – Universitas Putra Bangsa_
