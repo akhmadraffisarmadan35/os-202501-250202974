@@ -12,9 +12,7 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Percobaan ini bertujuan untuk memvisualisasikan dan memahami cara kerja sistem operasi dalam menghubungkan pengguna, aplikasi, dan perangkat keras melalui struktur berlapis yang diatur oleh kernel dan system call interface.
 
 ---
 
@@ -65,17 +63,36 @@ https://photos.app.goo.gl/dSyseLLXxtV4babB9
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1. Sistem operasi memiliki arsitektur berlapis (layered architecture) yang mengatur hubungan antara pengguna, aplikasi, sistem operasi, dan perangkat keras agar sistem berjalan secara terstruktur dan efisien.
+
+2. Kernel merupakan inti dari sistem operasi yang berperan penting dalam mengelola sumber daya komputer, termasuk proses, memori, sistem berkas, dan perangkat I/O. Tanpa kernel, sistem operasi tidak dapat berfungsi.
+
+3. System Call Interface berfungsi sebagai jembatan antara program aplikasi dan kernel. Melalui system call, aplikasi dapat meminta layanan dari sistem operasi tanpa harus mengakses perangkat keras secara langsung.
 
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Sebutkan tiga fungsi utama sistem operasi!
+   Jawaban: Manajemen Proses (Process Management)
+Mengatur pembuatan, penjadwalan, dan penghentian proses agar CPU dapat digunakan secara efisien.
+
+Manajemen Memori (Memory Management)
+Mengatur penggunaan memori utama (RAM), termasuk alokasi dan pembebasan ruang memori untuk proses yang sedang berjalan.
+
+Manajemen Input/Output dan Sistem Berkas (I/O & File System Management)
+Mengontrol akses ke perangkat keras (seperti disk, printer, keyboard) dan mengatur penyimpanan serta pengambilan data pada sistem berkas.
+
+2. Jelaskan perbedaan antara kernel mode dan user mode!
+   Jawaban: Kernel mode digunakan oleh sistem operasi untuk mengontrol perangkat keras, sedangkan user mode digunakan oleh program aplikasi dengan hak terbatas agar sistem tetap aman.
+   
+3. Sebutkan contoh OS dengan arsitektur monolithic dan microkernel!
+   Jawaban: Monolithic Kernel:
+Semua fungsi utama sistem operasi dijalankan dalam satu ruang kernel sehingga kinerjanya cepat, tapi rentan terhadap kesalahan sistem.
+Contohnya: Linux, Unix, MS-DOS.
+
+Microkernel:
+Hanya fungsi inti yang ada di kernel, sedangkan layanan lain dijalankan di user space agar lebih stabil dan mudah dikembangkan.
+Contohnya: Minix, QNX, Mach (macOS, iOS).
 
 ---
 
