@@ -1,13 +1,13 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 1
 Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Akhmad Raffi Sarmadan
+- **NIM**   : 250202974
+- **Kelas** : 1IKRA
 
 ---
 
@@ -19,8 +19,12 @@ Contoh:
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
-
+1. Lapisan Arsitektur Sistem Operasi
+Gambar menunjukkan struktur berlapis (layered architecture) di mana sistem operasi memisahkan fungsinya menjadi beberapa lapisan — mulai dari pengguna (user) hingga perangkat keras (hardware).
+2. Peran Kernel (Inti Sistem Operasi)
+Kernel adalah inti dari sistem operasi yang bertanggung jawab untuk mengelola sumber daya utama komputer seperti prosesor, memori, dan perangkat I/O.
+3. System Call Interface (Antarmuka Panggilan Sistem)
+Bagian ini adalah jembatan antara aplikasi dan kernel. Program aplikasi tidak dapat langsung mengakses sumber daya kernel, sehingga mereka menggunakan system calls untuk meminta layanan dari sistem operasi seperti membuka file, membuat proses, atau mengakses perangkat.
 ---
 
 ## Langkah Praktikum
@@ -43,14 +47,20 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+https://photos.app.goo.gl/dSyseLLXxtV4babB9
 
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+- makna hasil percobaan: 1. Menunjukkan Hirarki Interaksi Sistem Operasi
+2. Menggambarkan Peran Kernel Sebagai Pengendali Utama
+3. Menggambarkan Hubungan Abstraksi Antara Software dan Hardware
+- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS): •Arsitektur OS memberikan kerangka struktural (lapisan-lapisan).
+•Kernel menjalankan fungsi utama dalam mengatur sumber daya di lapisan inti.
+•System Call Interface menjadi penghubung antara aplikasi di lapisan atas dengan kernel di lapisan inti.
+- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?: •Struktur fungsional sama, tapi mekanisme internal berbeda.
+•Linux lebih fleksibel dan terbuka, cocok untuk riset dan pengembangan.
+•Windows lebih tertutup namun stabil, cocok untuk pengguna umum dan aplikasi bisnis.
 
 ---
 
@@ -71,8 +81,8 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?  memahami fungsi OS
+- Bagaimana cara Anda mengatasinya?  bertanya kepada teman dan mereview materi di internet agar lebih paham
 
 ---
 
