@@ -1,11 +1,11 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 2
+Topik: syscall structures
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
+- **Nama**  : Akh
 - **NIM**   : [NIM Mahasiswa]  
 - **Kelas** : [Kelas]
 
@@ -43,9 +43,9 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![alt text](screenshots/screenshotssyscall1ls.png)
-![alt text](screenshots/screenshotssyscall2ls.png)
-
+![alt text](screenshots/Screenshotssyscall1.png)
+![alt text](screenshots/Screenshotssyscall2.png)
+![alt text](screenshots/Screenshotssyscall3.png)
 ---
 
 ## Analisis
