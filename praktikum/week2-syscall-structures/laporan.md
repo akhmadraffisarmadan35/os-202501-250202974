@@ -43,7 +43,8 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![alt text](screenshots/screenshotssyscall1ls.png)
+![alt text](screenshots/screenshotssyscall2ls.png)
 
 ---
 
