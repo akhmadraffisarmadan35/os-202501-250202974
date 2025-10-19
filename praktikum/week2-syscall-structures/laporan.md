@@ -32,9 +32,10 @@ Mampu untuk menjalankan praktikum dengan benar terutama pada aplikasi ubuntu.
 
 ## Langkah Praktikum
 1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+2. Perintah yang dijalankan : :strace ls, screenshot/syscall_ls.png., screenshot/syscall-diagram.png. 
+3. File dan kode yang dibuat : laporan.md.
+4. Commit message yang digunakan : gitt add ., gitt commit -m "Minggu 2 - Struktur, gitt push origin main
+
 
 ---
 
@@ -43,7 +44,7 @@ Tuliskan potongan kode atau perintah utama:
 ```bash
 strace ls
 strace -e trace=open,read,write,close cat /etc/passwd
-
+dmesg | tail -n 10
 ```
 
 ---
