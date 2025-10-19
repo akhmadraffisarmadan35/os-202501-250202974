@@ -54,6 +54,8 @@ Sertakan screenshot hasil percobaan atau diagram:
 ![alt text](screenshots/Screenshotssyscall1.png)
 ![alt text](screenshots/Screenshotssyscall2.png)
 ![alt text](screenshots/Screenshotssyscall3.png)
+![alt text](screenshots/Screenshotssyscall.png)
+
 ---
 
 ## Analisis
