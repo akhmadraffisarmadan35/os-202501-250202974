@@ -68,12 +68,26 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi utama system call dalam sistem operasi?
+   Jawaban: -Mengakses file dan perangkat keras.
+-Mengelola memori.
+-Mengatur proses.
+-Berkomunikasi antar proses (IPC).
+2. Sebutkan 4 kategori system call yang umum digunakan. 
+   Jawaban: -Manajemen Proses (Process Control):
+Untuk membuat, mengakhiri, atau memodifikasi proses.
+Contoh: fork(), exec(), exit(), wait().
+-Manajemen File (File Management):
+Untuk membuka, membaca, menulis, atau menghapus file.
+Contoh: open(), read(), write(), close().
+-Manajemen Sistem I/O (Device Management):
+Untuk mengakses dan mengatur perangkat input/output.
+Contoh: ioctl(), read(), write().
+-Manajemen Memori (Memory Management):
+Untuk mengalokasikan atau membebaskan memori.
+Contoh: brk(), mmap().
+3. Mengapa system call tidak bisa dipanggil langsung oleh user program?
+   Jawaban: Karena program pengguna berjalan di user mode yang terbatas, sedangkan system call membutuhkan akses kernel mode untuk alasan keamanan, proteksi, dan stabilitas sistem.
 
 ---
 
