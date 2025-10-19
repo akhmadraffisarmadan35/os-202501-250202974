@@ -41,9 +41,9 @@ Mampu untuk menjalankan praktikum dengan benar terutama pada aplikasi ubuntu.
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+strace ls
+strace -e trace=open,read,write,close cat /etc/passwd
+
 ```
 
 ---
