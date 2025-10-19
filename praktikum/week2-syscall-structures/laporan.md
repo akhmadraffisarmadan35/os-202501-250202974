@@ -5,22 +5,29 @@ Topik: syscall structures
 ---
 
 ## Identitas
-- **Nama**  : Akh
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Akhmad Raffi Sarmadan
+- **NIM**   : 250202974
+- **Kelas** : 1IKRA
 
 ---
 
 ## Tujuan
 Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Mampu untuk menjalankan praktikum dengan benar terutama pada aplikasi ubuntu.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
-
+1. Pengelolaan Proses dan Sumber Daya Ubuntu memungkinkan pengguna untuk memahami konsep sistem operasi melalui pengamatan dan manipulasi proses: -Menggunakan perintah seperti ps, top, kill, dan nice untuk mengelola proses.
+-Praktikum sering kali melibatkan pengamatan CPU usage, memory usage, serta interaksi antar proses (IPC).
+2. Ubuntu sebagai Sistem Operasi Open Source Ubuntu adalah distribusi Linux berbasis Debian yang bersifat open source dan banyak digunakan dalam lingkungan akademik dan industri. Keunggulannya mencakup:
+-Gratis dan legal untuk digunakan dan dimodifikasi.
+-Memiliki dukungan komunitas yang luas.
+-Menyediakan lingkungan terminal dan GUI (Graphical User Interface) yang cocok untuk percobaan praktikum sistem operasi maupun jaringan.
+3. Lingkungan Terminal sebagai Sarana Eksperimen Terminal di Ubuntu memungkinkan pengguna melakukan berbagai tugas melalui perintah-perintah shell (bash). Ini menjadi sarana utama dalam praktikum karena:
+-Memungkinkan akses langsung ke sistem operasi.
+-Cocok untuk menjalankan script Shell, Python, dan berbagai utilitas sistem.
+-Digunakan untuk mengeksplorasi manajemen proses, file, dan jaringan.
 ---
 
 ## Langkah Praktikum
