@@ -104,8 +104,6 @@ System call seperti openat("/etc/selinux/config") gagal karena file tidak ada (E
 3.truktur System Call Mengikuti Pola yang Konsisten:Nama fungsi → menjelaskan jenis operasi (misal: read untuk membaca file).
 Parameter → nilai/nama file, flags, ukuran buffer, dll.
 
-Return value → menunjukkan hasil (sukses atau error).
-Ini menunjukkan aplikasi memiliki fallback/error handling terhadap konfigurasi yang tidak tersedia.
 ---
 
 ## Quiz
