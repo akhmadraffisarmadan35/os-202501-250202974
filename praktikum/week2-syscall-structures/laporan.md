@@ -59,9 +59,18 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
+- Jelaskan makna hasil percobaan.
+  •Proses yang diamati melalui strace berfokus pada interaksi antara aplikasi dan kernel, terutama terkait pemanggilan system call seperti openat, read, mmap, dan brk. Analisis ini penting karena menggambarkan bagaimana aplikasi berkomunikasi dengan sumber daya OS (file, memori, perangkat) pada tingkat rendah.
+•Fokus pada hubungan antara hasil percobaan dengan teori kernel, khususnya bagaimana fungsi-fungsi kernel bekerja sebagai interface antara program pengguna dan sumber daya sistem. Pemahaman ini mencakup bagaimana sistem call memetakan permintaan aplikasi ke tindakan konkret di kernel (contohnya membaca file, mengalokasikan memori, atau memetakan alamat memori).
+•Perbandingan lingkungan OS (Linux vs Windows) disebutkan sebagai bagian analisis untuk memahami perbedaan arsitektur dan implementasi IPC, manajemen memori, serta antarmuka sistem call antara kedua sistem operasi. Analisis ini membantu menilai portabilitas dan batasan praktikum saat beralih antara platform.
+•Catatan tentang beberapa konfigurasi tidak ditemukan (misalnya beberapa file konfigurasi seperti SELinux config yang tidak ada) menunjukkan bahwa hasil percobaan bisa dipengaruhi oleh ketersediaan sumber daya lingkungan eksekusi. Hal ini menunjukkan pentingnya penanganan error dan fallback dalam konteks praktikum.
+
+- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).
+  •Sistem call seperti openat, read, mmap, dan brk menggambarkan pola umum pemanggilan kernel: nama function call menunjukkan jenis operasi, sedangkan argumen memberikan konteks operasi (path, flags, ukuran buffer, alamat memori). Return value menunjukkan sukses atau gagal, dengan kode error POSIX yang relevan. Analisis ini selaras dengan konsep antarmuka kernel yang mengabstraksi akses ke file, memori, dan perangkat.
+•Jika terjadi kegagalan karena file tidak ditemukan (ENOENT) atau akses ditolak (EACCES), analisis perlu menyoroti bagaimana aplikasi menambah mekanisme fallback atau penanganan kesalahan agar program tetap robust meskipun konfigurasi tidak lengkap.
+
 - Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+•Linux dan Windows memiliki arsitektur kernel yang berbeda serta set sistem call yang spesifik pada masing-masing OS. Analisis ini membantu menjelaskan perbedaan perilaku saat menjalankan percobaan yang sama pada kedua lingkungan, misalnya dalam hal pemetaan memori, manajemen file, dan model keamanan (SELinux di Linux vs model keamanan Windows).
 
 ---
 
@@ -119,9 +128,9 @@ Contoh: brk(), mmap().
 ## Refleksi Diri
 Tuliskan secara singkat:
 - Apa bagian yang paling menantang minggu ini?
-- 
+  melakukan percobaan pada aplikasi ubuntu terutama pada saat coding.
 - Bagaimana cara Anda mengatasinya?  
-
+  melihat ulang perintah di docs jika kurang paham tanya kepada teman yang sudah bisa.
 ---
 
 **Credit:**  
