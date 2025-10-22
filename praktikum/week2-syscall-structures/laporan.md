@@ -65,9 +65,29 @@ Sertakan screenshot hasil percobaan atau diagram:
 
 ---
 
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+## Tabel Observasi
+| No. | Elemen Struktur               | Contoh dari `strace`                                    | Penjelasan                                                           |
+| --- | ----------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
+| 1   | **Nama System Call**          | `openat`, `read`, `fstat`, `mmap`, `ioctl`, `brk`       | Nama fungsi sistem yang dipanggil oleh aplikasi                      |
+| 2   | **Argumen/Parameter**         | `openat(AT_FDCWD, "/path", O_RDONLY)`                   | Parameter yang dikirim ke kernel (path, flags, ukuran, pointer, dll) |
+| 3   | **File Descriptor (fd)**      | `fd = 3`, `fd = 0`                                      | Angka yang merepresentasikan file/resource yang dibuka               |
+| 4   | **Return Value**              | `= 3`, `= -1 ENOENT`, `= 2996`                          | Hasil dari system call: bisa sukses (nilai), atau gagal (kode error) |
+| 5   | **Error Code (jika gagal)**   | `ENOENT`, `ENOTTY`, `EACCES`                            | Kode error standar POSIX, muncul jika system call gagal              |
+| 6   | **Komentar Tambahan**         | `No such file or directory`, `Inappropriate ioctl`      | Penjelasan tambahan tentang error (biasanya dalam kurung)            |
+| 7   | **Aksi Kernel**               | Mapping memory, membaca file, memproteksi halaman, dsb  | Apa yang dilakukan oleh kernel saat system call dijalankan           |
+| 8   | **Waktu Eksekusi (opsional)** | Tidak muncul di screenshot, tapi bisa `usec` atau `sec` | Digunakan jika `strace -T` atau `-tt` untuk melihat lama eksekusi    |
 
+## Kesimpulan
+1.System Call adalah Antarmuka Utama antara Aplikasi dan Kernel:
+Semua interaksi aplikasi dengan resource sistem seperti file, memori, dan perangkat keras dilakukan melalui system call.
+Contoh system call yang diamati: openat, read, fstat, mmap, ioctl, brk..
+2.Beberapa File Konfigurasi Tidak Ditemukan:
+System call seperti openat("/etc/selinux/config") gagal karena file tidak ada (ENOENT), tapi proses tetap berjalan.
+3.truktur System Call Mengikuti Pola yang Konsisten:Nama fungsi → menjelaskan jenis operasi (misal: read untuk membaca file).
+Parameter → nilai/nama file, flags, ukuran buffer, dll.
+
+Return value → menunjukkan hasil (sukses atau error).
+Ini menunjukkan aplikasi memiliki fallback/error handling terhadap konfigurasi yang tidak tersedia.
 ---
 
 ## Quiz
@@ -96,7 +116,8 @@ Contoh: brk(), mmap().
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
+- Apa bagian yang paling menantang minggu ini?
+- 
 - Bagaimana cara Anda mengatasinya?  
 
 ---
