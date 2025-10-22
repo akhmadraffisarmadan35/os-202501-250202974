@@ -80,9 +80,11 @@ Sertakan screenshot hasil percobaan atau diagram:
 ## Kesimpulan
 1.System Call adalah Antarmuka Utama antara Aplikasi dan Kernel:
 Semua interaksi aplikasi dengan resource sistem seperti file, memori, dan perangkat keras dilakukan melalui system call.
-Contoh system call yang diamati: openat, read, fstat, mmap, ioctl, brk..
+Contoh system call yang diamati: openat, read, fstat, mmap, ioctl, brk.
+
 2.Beberapa File Konfigurasi Tidak Ditemukan:
 System call seperti openat("/etc/selinux/config") gagal karena file tidak ada (ENOENT), tapi proses tetap berjalan.
+
 3.truktur System Call Mengikuti Pola yang Konsisten:Nama fungsi → menjelaskan jenis operasi (misal: read untuk membaca file).
 Parameter → nilai/nama file, flags, ukuran buffer, dll.
 
