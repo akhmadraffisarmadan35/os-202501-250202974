@@ -1,14 +1,13 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 3
+Topik: linux-fs-permission
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
-
+- **Nama**  : Akhmad Raffi Sarmadan
+- **NIM**   : 250202974 
+- **Kelas** :1IKRA
 ---
 
 ## Tujuan
@@ -60,12 +59,19 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi dari perintah chmod? 
+   Jawaban: chmod (change mode) digunakan untuk mengubah hak akses (permission) pada file atau direktori di sistem operasi berbasis Unix/Linux
+Hak akses yang bisa diubah adalah:
+r (read) → hak untuk membaca isi file / melihat isi direktori
+w (write) → hak untuk menulis atau mengubah file / menambah dan menghapus isi direktori
+x (execute) → hak untuk menjalankan file (jika file executable atau script) / masuk ke dalam direktori
+2. apa arti dari kode permissionrwxr-xr--? 
+   Jawaban: Pemilik (owner) → rwx → dapat membaca, menulis, dan menjalankan.
+Grup (group) → r-x → dapat membaca dan menjalankan, tapi tidak menulis.
+Lainnya (others) → r-- → hanya dapat membaca  
+3. Jelaskan perbedaan antara chown dan chmod 
+   Jawaban:  chmod → mengatur apa yang boleh dilakukan oleh siapa.
+chown → mengatur siapa yang memiliki file atau direktori tersebut.
 
 ---
 
