@@ -11,39 +11,70 @@ Topik: linux-fs-permission
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
-
+-Mengenal direktori kerja dan sistem file Linux
+-Menggunakan perintah dasar seperti pwd, ls, dan cd untuk menavigasi sistem file.
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
-
+1. Abraham Silberschatz, Peter Baer Galvin, Greg Gagne — Operating System Concepts (2018)
+Buku ini menjelaskan bahwa sistem operasi mengatur sumber daya komputer, termasuk manajemen file. Setiap file memiliki atribut dan hak akses yang diatur untuk menjaga keamanan data. Mekanisme seperti access control menentukan siapa yang dapat membaca, menulis, atau mengeksekusi file.
+➡️ Relevansi: Konsep ini diterapkan saat menggunakan chmod dan chown untuk mengatur izin dan kepemilikan file.
+2. Andrew S. Tanenbaum, Herbert Bos — Modern Operating Systems (2015)
+Tanenbaum menekankan bahwa file system menyediakan struktur penyimpanan dan kontrol akses melalui permission bits (r, w, x) bagi owner, group, dan others. Hanya pengguna dengan hak superuser (root) yang dapat mengubah kepemilikan file.
+➡️ Relevansi: Terlihat saat file diubah menjadi milik root dengan perintah sudo chown root.
+3. Linux Manual Pages (man chmod, man chown, man ls)
+Manual Linux menjelaskan fungsi perintah:
+ls menampilkan atribut file,
+chmod mengubah izin akses,
+chown mengubah kepemilikan file.
+➡️ Relevansi: Menjadi panduan utama penggunaan perintah dalam praktikum.
+4. OSTEP — Operating Systems: Three Easy Pieces (2018)
+OSTEP membahas sistem operasi sebagai pengelola virtualization, concurrency, dan persistence. Dalam konteks file system, dijelaskan pentingnya proteksi dan keamanan data melalui mekanisme izin dan kepemilikan file.
+➡️ Relevansi: Menjelaskan dasar teoretis bagaimana sistem operasi mengatur akses file melalui kernel.
 ---
 
 ## Langkah Praktikum
 1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
-
+2. Perintah yang dijalankan.
+ jawab: pwd
+ls -l
+cd /tmp
+ls -a
+cat /etc/passwd | head -n 5
+echo "Hello <NAME><NIM>" > percobaan.txt
+ls -l percobaan.txt
+chmod 600 percobaan.txt
+ls -l percobaan.txt
+sudo chown root percobaan.txt
+ls -l percobaan.txt 
+4. File dan kode yang dibuat.
+ jawab: praktikum/week3-linux-fs-permission/screenshots/  
+6. Commit message yang digunakan.
+ jawab: git add .
+git commit -m "Minggu 3 - Linux File System & Permission"
+git push origin main
 ---
 
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+pwd
+ls -l
+cd /tmp
+ls -a
+cat /etc/passwd | head -n 5
+echo "Hello <NAME><NIM>" > percobaan.txt
+ls -l percobaan.txt
+chmod 600 percobaan.txt
+ls -l percobaan.txt
+sudo chown root percobaan.txt
+ls -l percobaan.txt
 ```
 
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+![alt text](screensots/
 ---
 
 ## Analisis
