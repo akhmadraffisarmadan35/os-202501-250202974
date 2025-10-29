@@ -12,14 +12,22 @@ Topik: proses user
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+-Memahami manajemen user dan grup di Linux.
 
+-Mengenal pembuatan user baru dan autentikasi.
+
+-Memahami manajemen proses, resource, dan hierarki proses.
+
+-Menghubungkan praktik dengan teori kernel, system call, dan arsitektur OS.
+
+-Membandingkan konsep Linux dengan OS lain (Windows) untuk melihat perbedaan implementasi.
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+- Silberschatz et al., 2018 – Linux menggunakan UID dan GID untuk mengidentifikasi user dan grup; kontrol akses file dan proses bergantung pada kombinasi ini.
+- Silberschatz et al., 2018 – Manajemen user dilakukan di user space, kernel memeriksa UID/GID saat autentikasi.
+- Silberschatz et al., 2018 – Kernel menggunakan PCB (Process Control Block) untuk menyimpan status proses (PID, PPID, state, resource).
+- Silberschatz et al., 2018 – Semua operasi dari user space menggunakan system call untuk meminta kernel melakukan operasi aman.
 
 ---
 
@@ -99,20 +107,48 @@ pstree -p | head -20
 ![alt text](screenshots/screenshotssyscall1.png)
 ![alt text](screenshots/screenshotssyscall2.png)
 ![alt text](screenshots/screenshotssyscall3.png)
+
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+- Jelaskan makna hasil percobaan.
+
+  jawab:- Percobaan ini menekankan bahwa user management dan proses adalah komponen inti kernel Linux yang mempengaruhi keamanan, kontrol akses, dan manajemen resource.
+Di Windows, konsepnya mirip, tapi struktur data, API, dan tools berbeda.
+
+- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).
+
+  jawab: -User management → terkait UID/GID, permission, system call (getuid, getgroups, setuid) → kontrol akses & keamanan.
+
+-Penambahan user & password → interaksi user space → PAM → kernel → file system (/etc/passwd, /etc/shadow).
+
+-Proses & manajemen resource → kernel mengelola PCB, signals, CPU/memory scheduling → system call seperti fork(), execve(), kill() digunakan.
+
+-Semua perintah percobaan menunjukkan arsitektur OS: user space tools berinteraksi melalui system call untuk meminta kernel melakukan operasi aman dan terkontrol.
+- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?
+
+  jawab: -Konsep identitas user, kontrol akses, dan manajemen proses sama pada kedua OS, tapi struktur data, system call, dan tools berbeda. Linux lebih command-line dan kernel-centric, sedangkan Windows lebih GUI dan database-centric.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
-
+-Linux memungkinkan manajemen pengguna dan grup untuk keamanan dan kontrol akses.
+-Identitas user, grup, dan hak akses bisa dicek dengan whoami, id, dan groups.
+-Proses di Linux dapat dipantau, dijalankan di background, dan dihentikan sesuai kebutuhan.
 ---
 
+## Tugas
+1. ![alt text](screenshots/Screenshotssyscall4.png)
+
+2. User management adalah fondasi keamanan Linux.
+Tanpa pengelolaan akun dan grup yang tepat:
+Kontrol akses tidak efektif
+Audit menjadi tidak jelas
+Risiko kebocoran data dan penyalahgunaan meningkat
+Dengan user management yang baik, sistem Linux bisa:
+Membatasi akses file dan proses sesuai peran
+Memastikan aktivitas tercatat dan dapat diaudit
+Menegakkan prinsip keamanan seperti least privilege dan accountability
 ## Quiz
 1. Apa fungsi dari proses init atau systemd dalam sistem Linux?
 
