@@ -118,7 +118,22 @@ pstree -p | head -20
 
 - Eksperimen 2
 
-  
+| **Kolom**  | **Keterangan** |
+|-------------|----------------|
+| `PID`       | **Process ID**, nomor unik yang diberikan sistem operasi untuk setiap proses. |
+| `USER`      | **Pengguna** yang menjalankan proses tersebut. |
+| `%CPU`      | **Persentase penggunaan CPU** oleh proses. |
+| `%MEM`      | **Persentase penggunaan memori (RAM)** oleh proses. |
+| `COMMAND`   | **Perintah** atau nama program yang dieksekusi. |
+• Perintah ps aux | head -10 menampilkan snapshot dari 10 proses teratas yang sedang berjalan. Sementara top -n 1 menampilkan daftar proses secara real-time.
+
+- Eksperimen 3
+
+  1. sleep 1000 &: Menjalankan perintah sleep selama 1000 detik di latar belakang (simbol &). Sistem memberikan output PID dari proses tersebut, yaitu 454.
+2. ps aux | grep sleep: Mencari proses yang mengandung kata "sleep". Hasilnya menunjukkan proses sleep 1000 dengan PID 454 sedang berjalan.
+3. kill 1234: Mengirimkan sinyal terminasi ke proses dengan PID 454, sehingga proses tersebut berhenti dibuktikan dengan keterangan Terminated.
+4. Pengecekan ulang dengan ps aux | grep sleep menunjukkan bahwa proses sleep sudah tidak ada lagi, membuktikan bahwa perintah kill berhasil.
+
 
 ## Analisis
 - Jelaskan makna hasil percobaan.
