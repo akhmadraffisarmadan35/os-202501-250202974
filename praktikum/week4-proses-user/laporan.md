@@ -105,6 +105,21 @@ pstree -p | head -20
 
 ---
 
+## Penjelasan Hasil Eksperimen 
+- Eksperimen 1
+
+| **Perintah**             | **Hasil Output**                                                                 |
+|---------------------------|----------------------------------------------------------------------------------|
+| `whoami`                 | akh_raffi07                                                                    |
+| `id`                     | uid=1000(akh_raffi07)<br>gid=1000(akh_raffi07)<br>groups=1000(akh_raffi07),4(adm),27(sudo) |
+| `groups`                 | akh_raffi07 adm sudo                                                             |
+| `sudo adduser praktikan` | adding user                                                                     |                                                                |
+| `whoami`                 | praktikan                                                                       |
+
+- Eksperimen 2
+
+  
+
 ## Analisis
 - Jelaskan makna hasil percobaan.
 
