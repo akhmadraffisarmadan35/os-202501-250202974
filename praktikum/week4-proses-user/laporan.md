@@ -134,7 +134,9 @@ pstree -p | head -20
 3. kill 1234: Mengirimkan sinyal terminasi ke proses dengan PID 454, sehingga proses tersebut berhenti dibuktikan dengan keterangan Terminated.
 4. Pengecekan ulang dengan ps aux | grep sleep menunjukkan bahwa proses sleep sudah tidak ada lagi, membuktikan bahwa perintah kill berhasil.
 
+- Eksperimen 4
 
+  Perintah pstree -p menampilkan proses yang berjalan dalam format pohon, lengkap dengan PID-nya. Dari output di atas, terlihat bahwa systemd dengan PID 1 adalah proses induk dari hampir semua proses lain di sistem. Ini menunjukkan perannya sebagai manajer sistem dan layanan utama di Linux modern.
 ## Analisis
 - Jelaskan makna hasil percobaan.
 
