@@ -12,15 +12,10 @@ Topik: proses user
 ---
 
 ## Tujuan
--Memahami manajemen user dan grup di Linux.
+1. Mahasiswa mampu menjelaskan konsep proses dan user dalam sistem operasi Linux.
+2. Mahasiswa mampu menampilkan daftar proses yang sedang berjalan dan statusnya.
+3. Mahasiswa mampu menggunakan perintah untuk membuat dan mengelola user.
 
--Mengenal pembuatan user baru dan autentikasi.
-
--Memahami manajemen proses, resource, dan hierarki proses.
-
--Menghubungkan praktik dengan teori kernel, system call, dan arsitektur OS.
-
--Membandingkan konsep Linux dengan OS lain (Windows) untuk melihat perbedaan implementasi.
 ---
 
 ## Dasar Teori
