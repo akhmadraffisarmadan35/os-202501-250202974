@@ -42,9 +42,11 @@ dmesg | head
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![alt text](<screenshots/FCFS & SJF.png>)
 
+![alt text](<screenshots/FCFS.png>)
+
+![alt text](<screenshots/SJF.png>)
 ---
 
 ## Analisis
