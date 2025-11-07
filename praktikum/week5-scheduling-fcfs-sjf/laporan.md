@@ -1,13 +1,13 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 5
 Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Akhmad Raffi Sarmadan
+- **NIM**   : 250202974
+- **Kelas** : 1IKRA
 
 ---
 
