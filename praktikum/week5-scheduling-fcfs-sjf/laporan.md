@@ -1,6 +1,6 @@
 
 # Laporan Praktikum Minggu 5
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: scheduling-fcfs-sjf
 
 ---
 
@@ -74,7 +74,7 @@ Average Turnaround Time (TAT) = Total Turnaround Time / Jumlah Proses
 ![alt text](<screenshots/SJF.png>)
 ---
 
-## Peebandingan FCFS & SJF
+## Perbandingan FCFS & SJF
 | **Algoritma** | **Avg Waiting Time** | **Avg Turnaround Time** | **Kelebihan**                        | **Kekurangan**                                 |
 |----------------|----------------------|--------------------------|--------------------------------------|------------------------------------------------|
 | FCFS           | 8,75                 | 14,75                    | Sederhana dan mudah diterapkan       | Tidak efisien untuk proses panjang             |
