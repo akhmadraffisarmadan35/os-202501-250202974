@@ -110,7 +110,8 @@ Hasil percobaan menunjukkan bahwa algoritma First Come First Served (FCFS) menge
 
 Dalam kaitannya dengan sistem operasi, penjadwalan proses merupakan tugas utama kernel dalam mengelola penggunaan CPU. Kernel menggunakan informasi proses yang diperoleh melalui system call untuk menentukan urutan eksekusi. Simulasi FCFS menggambarkan secara konseptual bagaimana kernel menjadwalkan proses secara berurutan dalam arsitektur sistem operasi.
 
-Perbedaan lingkungan sistem operasi seperti Linux dan Windows tidak memengaruhi hasil simulasi secara logis, karena perhitungan dilakukan oleh program. Namun, pada implementasi nyata, Linux menggunakan Completely Fair Scheduler (CFS) sedangkan Windows menerapkan priority-based scheduling, sehingga urutan eksekusi dan waktu tunggu proses dapat berbeda.
+Perbedaan lingkungan sistem operasi seperti Linux dan Windows tidak berpengaruh terhadap hasil simulasi secara logis karena seluruh proses perhitungan dilakukan oleh program. Namun, pada implementasi sistem operasi yang sebenarnya, Linux menerapkan Completely Fair Scheduler (CFS), sedangkan Windows menggunakan penjadwalan berbasis prioritas. Perbedaan kebijakan penjadwalan tersebut menyebabkan urutan eksekusi serta waktu tunggu proses dapat berbeda pada masing-masing sistem operasi.
+
 ---
 
 ## Kesimpulan
