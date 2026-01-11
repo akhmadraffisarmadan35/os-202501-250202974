@@ -12,15 +12,17 @@ Topik: page-replacement
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
-
+- Tuliskan tujuan praktikum minggu ini.  
+Tujuan dari percobaan algoritma Page Replacement FIFO (First-In First-Out) dan LRU (Least Recently Used) adalah untuk memahami cara kerja masing-masing algoritma dalam mengelola memori utama, khususnya dalam menentukan halaman yang harus digantikan ketika terjadi kekurangan frame. Selain itu, percobaan ini bertujuan untuk membandingkan kinerja kedua algoritma berdasarkan jumlah page fault yang dihasilkan, sehingga dapat diketahui algoritma mana yang lebih efisien dalam mempertahankan halaman yang sering digunakan dan meminimalkan terjadinya page fault.
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1. Algoritma FIFO (First-In First-Out)
 
+FIFO merupakan algoritma page replacement yang mengganti halaman berdasarkan urutan kedatangan. Halaman yang pertama kali masuk ke memori akan menjadi halaman pertama yang digantikan. Algoritma ini sederhana, namun tidak mempertimbangkan frekuensi atau pola akses halaman, sehingga dapat menghasilkan page fault yang lebih banyak.
+
+2. Algoritma LRU (Least Recently Used)
+LRU adalah algoritma page replacement yang mengganti halaman yang paling lama tidak digunakan. Algoritma ini bekerja berdasarkan prinsip locality of reference, yaitu kecenderungan proses untuk mengakses kembali halaman yang baru saja digunakan. Oleh karena itu, LRU umumnya lebih efisien dibandingkan FIFO dalam mengurangi jumlah page fault.
 ---
 
 ## Langkah Praktikum
@@ -76,30 +78,124 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+```python
+# Dataset dan jumlah frame
+pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
+frame_size = 3
+
+frames = []
+queue_index = 0
+page_fault = 0
+
+print(f"Dataset Loaded: {pages}")
+print(f"Jumlah Frame  : {frame_size}\n")
+
+print("=" * 50)
+print(" SIMULASI FIFO (First-In First-Out)")
+print("=" * 50)
+print("| No | Page | Status | Isi Frame (Memori) |")
+print("-" * 50)
+
+for i, page in enumerate(pages, start=1):
+    if page in frames:
+        status = "HIT"
+    else:
+        status = "MISS"
+        page_fault += 1
+
+        if len(frames) < frame_size:
+            frames.append(page)
+        else:
+            frames[queue_index] = page
+            queue_index = (queue_index + 1) % frame_size
+
+    # Menampilkan frame dengan tanda '-' jika belum penuh
+    display_frames = frames + ['-'] * (frame_size - len(frames))
+    frame_str = " ".join(map(str, display_frames))
+
+    print(f"| {i:2} | {page:4} | {status:6} | [ {frame_str} ] |")
+
+print("-" * 50)
+print(f"Total Page Fault FIFO: {page_fault}")
+
+
+
+
+pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
+frame_size = 3
+
+stack = []
+page_fault = 0
+
+print("=" * 55)
+print(" SIMULASI LRU (Least Recently Used)")
+print("=" * 55)
+print("| No | Page | Status | Isi Frame (Stack Visual) |")
+print("-" * 55)
+
+for i, page in enumerate(pages, start=1):
+    if page in stack:
+        status = "HIT"
+        stack.remove(page)
+        stack.append(page)
+    else:
+        status = "MISS"
+        page_fault += 1
+
+        if len(stack) < frame_size:
+            stack.append(page)
+        else:
+            stack.pop(0)   # hapus yang paling lama digunakan
+            stack.append(page)
+
+    # Tampilan frame
+    display_stack = stack + ['-'] * (frame_size - len(stack))
+    stack_view = " ".join(map(str, display_stack))
+
+    print(f"| {i:2} | {page:4} | {status:6} | [ {stack_view} ] |")
+
+print("-" * 55)
+print(f"Total Page Fault LRU : {page_fault}")
+
+
 ```
 
 ---
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![alt text](<screenshots/FIFO.png>)
+![alt text](<screenshots/LRU.png>)
+## Tabel Perbandingan Algoritma
+
+| Algoritma | Jumlah Page Fault | Keterangan |
+|-----------|:-----------------:|------------|
+| FIFO (First-In First-Out) | 10 | Membuang halaman berdasarkan waktu masuk tanpa mempertimbangkan frekuensi akses. |
+| LRU (Least Recently Used) | 9 | Mempertahankan halaman yang baru saja digunakan untuk meminimalkan terjadinya page fault. |
+
+
 
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+
+1. Makna Hasil Percobaan
+Hasil percobaan menunjukkan bahwa algoritma LRU menghasilkan page fault lebih sedikit (9) dibandingkan FIFO (10). Hal ini membuktikan bahwa LRU lebih efisien karena mempertahankan halaman yang masih sering digunakan, sedangkan FIFO hanya mempertimbangkan urutan masuk halaman.
+
+2. Keterkaitan dengan Teori Sistem Operasi
+Algoritma FIFO dan LRU merupakan bagian dari manajemen memori kernel. Ketika terjadi page fault, kernel melalui system call memuat halaman dari disk ke memori utama. LRU lebih optimal karena sesuai dengan prinsip locality of reference, sehingga dapat mengurangi frekuensi page fault.
+
+3. Perbedaan pada Lingkungan OS (Linux vs Windows)
+Pada praktiknya, hasil dapat berbeda antara Linux dan Windows. Linux menggunakan pendekatan LRU approximation, sedangkan Windows menerapkan working set model. Perbedaan kebijakan kernel dan arsitektur manajemen memori ini memengaruhi efisiensi page replacement di masing-masing sistem operasi.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1. Algoritma LRU lebih efisien dibandingkan FIFO karena menghasilkan jumlah page fault yang lebih sedikit, sehingga lebih optimal dalam pengelolaan memori.
 
+2. Perbedaan hasil terjadi karena LRU mempertimbangkan riwayat penggunaan halaman, sedangkan FIFO hanya berdasarkan urutan masuk tanpa memperhatikan pola akses.
+
+3. Implementasi algoritma page replacement sangat bergantung pada kebijakan kernel sistem operasi, sehingga hasil nyata dapat berbeda antara sistem operasi seperti Linux dan Windows.
 ---
 
 ## Quiz
