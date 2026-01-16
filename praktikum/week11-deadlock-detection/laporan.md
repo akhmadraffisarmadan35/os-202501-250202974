@@ -53,12 +53,13 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
    - Simpan hasil eksekusi dalam bentuk screenshot.
 
 4. **Analisis Hasil**
+- Sajikan hasil deteksi dalam tabel (proses deadlock / tidak).
+-  Jelaskan mengapa deadlock terjadi atau tidak terjadi.
+- Kaitkan hasil dengan teori deadlock (empat kondisi).
 
-   - Sajikan hasil deteksi dalam tabel (proses deadlock / tidak).  
-   - Jelaskan mengapa deadlock terjadi atau tidak terjadi.  
-   - Kaitkan hasil dengan teori deadlock (empat kondisi).
+   
 
-5. **Commit & Push**
+6. **Commit & Push**
 
    ```bash
    git add .
@@ -72,9 +73,68 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+# Dataset proses
+processes = {
+    "P1": {"allocation": "R1", "request": "R2"},
+    "P2": {"allocation": "R2", "request": "R3"},
+    "P3": {"allocation": "R3", "request": "R1"},
+}
+
+# Membuat mapping resource ke proses yang memegangnya
+resource_owner = {}
+for p, data in processes.items():
+    resource_owner[data["allocation"]] = p
+
+# Membangun graf ketergantungan antar proses
+graph = {}
+for p, data in processes.items():
+    requested_resource = data["request"]
+    if requested_resource in resource_owner:
+        graph[p] = resource_owner[requested_resource]
+    else:
+        graph[p] = None
+
+# Fungsi deteksi siklus (deadlock)
+def detect_deadlock(graph):
+    visited = set()
+    stack = set()
+    deadlock_processes = set()
+
+    def dfs(process):
+        if process in stack:
+            deadlock_processes.add(process)
+            return True
+        if process in visited or graph[process] is None:
+            return False
+
+        visited.add(process)
+        stack.add(process)
+
+        next_process = graph[process]
+        if dfs(next_process):
+            deadlock_processes.add(process)
+            return True
+
+        stack.remove(process)
+        return False
+
+    for p in graph:
+        if dfs(p):
+            pass
+
+    return deadlock_processes
+
+# Menjalankan deteksi deadlock
+deadlock = detect_deadlock(graph)
+
+# Output hasil
+print("=== HASIL DETEKSI DEADLOCK ===")
+if deadlock:
+    print("Deadlock terdeteksi!")
+    print("Proses yang terlibat deadlock:", ", ".join(deadlock))
+else:
+    print("Tidak terjadi deadlock.")
+
 ```
 
 ---
@@ -86,14 +146,32 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+| Proses | Resource Allocation | Resource Request |    Status    |
+| :----: | :-----------------: | :--------------: | :----------: |
+|   P1   |          R1         |        R2        | **Deadlock** |
+|   P2   |          R2         |        R3        | **Deadlock** |
+|   P3   |          R3         |        R1        | **Deadlock** |
+
+
+- Percobaan membuktikan bahwa deadlock terjadi ketika empat kondisi Coffman terpenuhi
+
+- Kernel dan system call berperan besar dalam terjadinya deadlock
+
+- Perbedaan OS memengaruhi cara deadlock ditangani, bukan cara deadlock terjadi
+
+- Linux dan Windows memiliki kebijakan manajemen resource yang berbeda, sehingga hasil observasi deadlock juga berbeda
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Percobaan menunjukkan bahwa sistem mengalami deadlock akibat adanya siklus ketergantungan resource antar proses yang saling menunggu.
+
+Deadlock terjadi karena empat kondisi Coffman (mutual exclusion, hold and wait, no preemption, dan circular wait) terpenuhi secara bersamaan.
+
+Kernel dan mekanisme system call berperan penting dalam pengelolaan resource, namun tanpa kebijakan pencegahan atau deteksi, kernel dapat membiarkan deadlock terjadi.
+
+Perbedaan sistem operasi memengaruhi penanganan deadlock, di mana Linux cenderung membiarkan deadlock bertahan, sedangkan Windows lebih aktif melakukan intervensi.
+
 
 ---
 
