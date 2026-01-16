@@ -140,8 +140,7 @@ else:
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](screenshots/hasil_deteksi.png)
 
 ---
 
